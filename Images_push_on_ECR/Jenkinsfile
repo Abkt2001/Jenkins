@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                cleanWs()
+                sh '''
+                pwd
+                git clone --single-branch --branch ${branch} ${link}
+                cd ekstest
+                account_id=$(aws sts get-caller-identity --query "Account" --output text)
+                aws ecr get-login-password --region ${awsregion} | docker login --username AWS --password-stdin ${account_id}.dkr.ecr.${awsregion}.amazonaws.com
+                docker images
+                docker build -t ${account_id}.dkr.ecr.${awsregion}.amazonaws.com/${ECR_Repo}:${BUILD_NUMBER} .
+                docker images
+                docker push ${account_id}.dkr.ecr.${awsregion}.amazonaws.com/${ECR_Repo}:${BUILD_NUMBER}
+                docker rmi ${account_id}.dkr.ecr.${awsregion}.amazonaws.com/${ECR_Repo}:${BUILD_NUMBER}
+                '''
+            }
+        }
+    }
+}
