@@ -44,7 +44,7 @@ Install the [ACTIVE CHOICE PARAMETER](https://plugins.jenkins.io/uno-choice/) Pl
 
 4. Create a Active Choices Reactive Parameter for list ECR Repository and paste the groovy script of the ECR_Reop_variable_groovy_script.groovyfile
 
-![AWS Region](Images/awsregion.png)
+![ECR Repo](Images/ecr.png)
 
 and mention the reference of the above awsregion variables name
 
