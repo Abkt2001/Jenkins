@@ -44,6 +44,8 @@ and mention the reference of the above awsregion variables name
 ```bash
 aws ec2 describe-instances --filters Name=tag:Name,Values=${ec2list}  --query Reservations[*] --region ${awsregion} --output json
 ```
+![Execute Shell](Images/ExecuteShell.png)
+
 #
 ## Author
 
