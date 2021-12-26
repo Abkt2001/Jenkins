@@ -27,7 +27,7 @@ Run the command to add the Jenkins user in the docker group
 ```bash
     sudo usermod -a -G docker jenkins
 ```
-For AWS access run the configure the AWS in the home directory of the Jenkins(/var/lib/jenkins -> default)
+For AWS access,configure the AWS in the home directory of the Jenkins(/var/lib/jenkins -> default)
 ```bash
     aws configure
 ```
