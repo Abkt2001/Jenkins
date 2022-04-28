@@ -3,3 +3,6 @@ def command = "aws ec2 describe-instances --query Reservations[*].Instances[*].{
 def proc = command.execute()
 def result = proc.text.tokenize()
 return result
+
+
+
